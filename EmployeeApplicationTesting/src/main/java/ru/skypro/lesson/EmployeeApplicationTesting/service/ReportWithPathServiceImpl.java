@@ -35,7 +35,7 @@ public class ReportWithPathServiceImpl implements ReportWithPathService{
         Integer i = 0;
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            String json = objectMapper.writeValueAsString(employeeService.getReport());
+            String json = objectMapper.writeValueAsString(null);
             ReportWithPathDTO reportWithPathDTO = new ReportWithPathDTO();
             File file = new File("report.json");
             Files.writeString(file.toPath(), json);

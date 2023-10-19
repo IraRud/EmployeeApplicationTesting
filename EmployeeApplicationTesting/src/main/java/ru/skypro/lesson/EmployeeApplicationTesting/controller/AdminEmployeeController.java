@@ -1,5 +1,6 @@
 package ru.skypro.lesson.EmployeeApplicationTesting.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,15 +15,11 @@ import ru.skypro.lesson.EmployeeApplicationTesting.DTO.EmployeeDTO;
 import ru.skypro.lesson.EmployeeApplicationTesting.service.EmployeeService;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/admin/employees")
 public class AdminEmployeeController {
 
     private final EmployeeService employeeService;
-
-    public AdminEmployeeController(EmployeeService employeeService) {
-        this.employeeService = employeeService;
-    }
-
 
     @DeleteMapping("/{id}")
     public void deleteEmployeeById(@PathVariable Integer id) {

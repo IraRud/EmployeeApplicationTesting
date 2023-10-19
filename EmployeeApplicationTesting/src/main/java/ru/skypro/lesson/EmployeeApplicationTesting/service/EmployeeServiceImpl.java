@@ -1,6 +1,9 @@
 package ru.skypro.lesson.EmployeeApplicationTesting.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -23,17 +26,12 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Service
+@RequiredArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
     private final EmployeePagingAndSortingRepository pagingAndSortingRepository;
 
     Logger logger = LoggerFactory.getLogger(EmployeeServiceImpl.class);
-
-    public EmployeeServiceImpl(EmployeeRepository employeeRepository,
-                               EmployeePagingAndSortingRepository pagingAndSortingRepository) {
-        this.employeeRepository = employeeRepository;
-        this.pagingAndSortingRepository = pagingAndSortingRepository;
-    }
 
     @Override
     public List<EmployeeFullInfo> getAllEmployees() {
